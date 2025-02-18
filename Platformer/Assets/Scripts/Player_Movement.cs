@@ -6,8 +6,10 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private float speed, thrust;
     public float Xinput;
     public bool facing_right = true;
-    public bool is_Grounded = true;
+    public bool is_Grounded;
     public Animator anim;
+    public LayerMask groundlayer;
+    public Transform groundcheck;
 
 
     void Start()
@@ -41,7 +43,9 @@ public class Player_Movement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        is_Grounded = Physics2D.OverlapCircle(groundcheck.position, 1f, groundlayer);
+
+        if (Input.GetKeyDown(KeyCode.Space) && is_Grounded)
         {
             jump();
         }
@@ -55,27 +59,12 @@ public class Player_Movement : MonoBehaviour
     }
     public void jump()
     {
-        if (is_Grounded)
-        {
-            player.AddForce(Vector2.up * thrust, ForceMode2D.Impulse);
+      
+           player.linearVelocity = new Vector2(player.linearVelocity.x, thrust);
             anim.SetBool("jumping", true);
-        }
-        else
-        {
-            anim.SetBool("jumping", false);
-
-        }
+        
+   
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("ground"))
-        {
-            is_Grounded=true;
-        }
-    }
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        is_Grounded = false;
-    }
+
 }

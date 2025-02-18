@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 412034217}
   - component: {fileID: 412034219}
   - component: {fileID: 412034218}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ground
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -253,6 +253,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1975027548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975027549}
+  m_Layer: 0
+  m_Name: groundcheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1975027549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975027548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029384762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2029384758
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +394,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.003152527, y: -0.051734403}
+  m_Offset: {x: 0.003152527, y: -0.051820725}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -373,7 +404,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.13774954, y: 0.2187325}
+  m_Size: {x: 0.13774954, y: 0.21890515}
   m_EdgeRadius: 0
 --- !u!50 &2029384761
 Rigidbody2D:
@@ -390,7 +421,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 30
+  m_GravityScale: 2.8
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -414,7 +445,8 @@ Transform:
   m_LocalPosition: {x: -2.596, y: -0.238, z: 0}
   m_LocalScale: {x: 4.1768, y: 4.1768, z: 1.0442}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1975027549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2029384763
@@ -429,12 +461,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 896a9dd2110fdbe4b87d461f7be860a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
-  thrust: 60
+  speed: 200.2
+  thrust: 10
   Xinput: 0
   facing_right: 1
   is_Grounded: 1
   anim: {fileID: 2029384764}
+  groundlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundcheck: {fileID: 1975027549}
 --- !u!95 &2029384764
 Animator:
   serializedVersion: 7
