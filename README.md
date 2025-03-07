@@ -1,2 +1,2 @@
-# Basic_Platformer
-hey ! its platformer
+# Practice repo
+hey ! it is project for practicing
